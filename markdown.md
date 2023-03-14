@@ -1,4 +1,5 @@
 ### Waiting for the page to finish rendering
+
 [https://pptr.dev/api/puppeteer.page.goto/](https://pptr.dev/api/puppeteer.page.goto/)
 
 The `page.goto()` method accepts an optional parameter which describes how long to wait before resolving the promise returned by `page.goto()`.
@@ -11,7 +12,6 @@ beforeAll(async () => {
 ```
 
 ### Waiting for the effects of a button click
-[https://pptr.dev/api/puppeteer.page.click/#remarks](https://pptr.dev/api/puppeteer.page.click/#remarks)
 
 I see a lot of this strategy when asserting the effects of page interactions, where awaiting the interaction happens first, then the effect is measured.
 ```
