@@ -3,7 +3,7 @@
 [https://pptr.dev/api/puppeteer.page.goto/](https://pptr.dev/api/puppeteer.page.goto/)
 
 The `page.goto()` method accepts an optional parameter which describes how long to wait before resolving the promise returned by `page.goto()`.
-Use `networkidle0` to wait for all network traffic to finish, plus an additional half second (see docs). Using 'domcontentloaded' does not wait for your React page to finish rendering.
+Use `networkidle0` to wait for all network traffic to finish, plus an additional half second (see docs). Using `domcontentloaded` does not wait for your React page to finish rendering, which means you have to write extra code to determine if the page is ready for measuring.
 
 ```
 beforeAll(async () => {
