@@ -1,3 +1,5 @@
+Some tips about Puppeteer from Lucas Morgan (morgluc).
+
 ### Waiting for the page to finish rendering
 
 [https://pptr.dev/api/puppeteer.page.goto/](https://pptr.dev/api/puppeteer.page.goto/)
@@ -31,3 +33,13 @@ await Promise.all([
 In this way, the effect you're measuring doesn't race with the promise from `.click()`.   
 [Puppeteer docs describe this, too.](https://pptr.dev/api/puppeteer.page.click/#remarks)
 
+### Waiting for elements to appear or disappear
+
+[https://pptr.dev/api/puppeteer.waitforselectoroptions/](https://pptr.dev/api/puppeteer.waitforselectoroptions/)  
+`page.waitForSelector()` has some options to wait for elements to appear or disappear, but the options are confusing.
+
+
+`page.waitForSelector('.myClass', {visible: true});` will tell Puppeteer to wait until the timeout (default 30 seconds) for `.myClass` to appear on the page. This can fail if the element was already visible.
+
+Sometimes I see `page.waitForSelector('.myClass', {visible: false})` to wait for some element to disappear from the page, which seems intuitive but the option doesn't behave this way.  
+To wait for an element to disappear use `page.waitForSelector({hidden: true});`
